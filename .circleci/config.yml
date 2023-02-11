@@ -83,8 +83,7 @@ jobs:
             npm run test
                 
   test-backend:
-    docker:
-      - image: circleci/node:13.8.0
+    <<: *node-13-docker-image
     steps:
       - checkout
       - restore_cache:
