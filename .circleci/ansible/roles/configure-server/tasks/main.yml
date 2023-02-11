@@ -1,0 +1,25 @@
+
+- name: Upgrade packages
+  become: true
+  apt:
+    upgrade: yes
+
+- name: Install nvm
+  ansible.builtin.shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+
+- name: Install Node.js 13.8.0
+  ansible.builtin.shell: |
+    nvm install 13.8.0
+    nvm use 13.8.0
+    node -v
+
+- name: Install pm2
+  become: true
+  npm:
+    name: pm2
+    global: yes
+    production: yes
+    state: present
