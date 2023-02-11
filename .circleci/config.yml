@@ -4,6 +4,10 @@ node-13-docker-image: &node-13-docker-image
   docker:
       - image: circleci/node:13.8.0
 
+python-3-docker-image: &python-3-docker-image
+    docker:
+      - image: cimg/python:3.10
+
 commands:
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
