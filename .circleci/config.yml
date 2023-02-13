@@ -225,9 +225,6 @@ jobs:
           fingerprints: ["8d:75:ff:56:30:47:1e:43:5a:4b:ee:0a:58:9b:86:f6"]
       - attach_workspace:
           at: ~/
-      # Checkout code from git
-      # Add ssh keys with fingerprint
-      # attach workspace
       - run:
           name: Install dependencies
           command: |
@@ -316,9 +313,6 @@ jobs:
       - install-aws-cli
       - install-node-13
       - install-ansible
-      # Checkout code from git
-      # Add ssh keys with fingerprint
-      # attach workspace
       - run:
           name: Install dependencies
           command: |
